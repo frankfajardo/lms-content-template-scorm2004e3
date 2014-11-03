@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--This is a Reload version 2.5.6 SCORM 2004 Content Package document-->
+<!--Spawned from the Reload Content Package Generator - http://www.reload.ac.uk-->
+<manifest xmlns="http://www.imsglobal.org/xsd/imscp_v1p1" 
+          xmlns:imsmd="http://ltsc.ieee.org/xsd/LOM" 
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+          xmlns:adlcp="http://www.adlnet.org/xsd/adlcp_v1p3" 
+          xmlns:imsss="http://www.imsglobal.org/xsd/imsss" 
+          xmlns:adlseq="http://www.adlnet.org/xsd/adlseq_v1p3" 
+          xmlns:adlnav="http://www.adlnet.org/xsd/adlnav_v1p3" 
+          identifier="MANIFEST-PAU_HSE" xsi:schemaLocation="http://www.imsglobal.org/xsd/imscp_v1p1 schemas/imscp_v1p1.xsd                               http://ltsc.ieee.org/xsd/LOM            schemas/lom.xsd                               http://www.adlnet.org/xsd/adlcp_v1p3    schemas/adlcp_v1p3.xsd                               http://www.imsglobal.org/xsd/imsss      schemas/imsss_v1p0.xsd                               http://www.adlnet.org/xsd/adlseq_v1p3   schemas/adlseq_v1p3.xsd                               http://www.adlnet.org/xsd/adlnav_v1p3   schemas/adlnav_v1p3.xsd">
+  <metadata>
+    <schema>ADL SCORM</schema>
+    <schemaversion>2004 3rd Edition</schemaversion>
+  </metadata>
+  <organizations default="MainOrganization-PAU_HSE">
+    <organization identifier="MainOrganization-PAU_HSE" structure="hierarchical" adlseq:objectivesGlobalToSystem="false">
+      <title>Pearson Australia Policies:  Health, Safety and Environment</title>
+      <item identifier="MainItem" identifierref="MainResource" isvisible="true">
+        <!-- equates to cmi.completion_threshold -->
+        <!-- SCORM 2004 4th Edition -->
+        <!--adlcp:completionThreshold completedByMeasure="true" minProgressMeasure="1.0" progressWeight="1.0" /-->
+        <!-- SCORM 2004 3rd Edition -->
+        <title>Health, Safety and Environment</title>
+        <adlcp:completionThreshold>1.00</adlcp:completionThreshold>
+        <imsss:sequencing>
+          <imsss:objectives>
+            <imsss:primaryObjective objectiveID="primary" satisfiedByMeasure="true">
+              <!-- equates to cmi.scaled_passing_score -->
+              <imsss:minNormalizedMeasure>1.00</imsss:minNormalizedMeasure>
+            </imsss:primaryObjective>
+          </imsss:objectives>
+          <!-- Optional: Limit attempts (managed by LMS), and or attemptAbsoluteDurationLimit equates to cmi.max_time_allowed  -->
+          <!--imsss:limitConditions attemptLimit="0" attemptAbsoluteDurationLimit="PT0H0M0S" /-->
+        </imsss:sequencing>
+        <!-- Launch Data -->
+        <!--adlcp:dataFromLMS><![CDATA[name=value]]></adlcp:dataFromLMS-->
+        <!--adlnav:presentation>
+			<adlnav:navigationInterface>
+				<adlnav:hideLMSUI>suspendAll</adlnav:hideLMSUI>
+			</adlnav:navigationInterface>
+		</adlnav:presentation-->
+      </item>
+      <imsss:sequencing>
+        <imsss:controlMode choice="true" choiceExit="true" flow="true" forwardOnly="false" />
+      </imsss:sequencing>
+    </organization>
+  </organizations>
+  <resources>
+    <resource identifier="MainResource" adlcp:scormType="sco" type="text/html" href="launch/sco-player.html">
+      <file href="launch/sco-content.json" />
+      <file href="launch/sco-player.html" />
+      <file href="shared/css/font-awesome-4.0.3/fonts/fontawesome-webfont.eot" />
+      <file href="shared/css/font-awesome-4.0.3/fonts/fontawesome-webfont.svg" />
+      <file href="shared/css/font-awesome-4.0.3/fonts/fontawesome-webfont.ttf" />
+      <file href="shared/css/font-awesome-4.0.3/fonts/fontawesome-webfont.woff" />
+      <file href="shared/css/font-awesome-4.0.3/fonts/FontAwesome.otf" />
+      <file href="shared/css/font-awesome-4.0.3/font-awesome.css" />
+      <file href="shared/css/font-awesome-4.0.3/font-awesome.min.css" />
+      <file href="shared/css/sco-player.min.css" />
+      <file href="shared/css/sco-print.css" />
+      <file href="shared/img/alwayslearning-logo-transparent.png" />
+      <file href="shared/img/logo_pearson.jpg" />
+      <file href="shared/img/pearson-logo-print.jpg" />
+      <file href="shared/img/pearson-logo-transparent.png" />
+      <file href="shared/js/jquery/jquery-1.11.0.min.js" />
+      <file href="shared/js/modernizr/modernizr-2.5.3.min.js" />
+      <file href="shared/js/SCOBot/Local_API_1484_11.min.js" />
+      <file href="shared/js/SCOBot/SCOBot.min.js" />
+      <file href="shared/js/SCOBot/SCORM_API.min.js" />
+      <file href="shared/js/sco-player.min.js" />
+      <file href="content/anti-bullying.html" />
+      <file href="content/anti-bullying.jpg" />
+      <file href="content/company-commitment.html" />
+      <file href="content/company-commitment.png" />
+      <file href="content/consultative-arrangements.html" />
+      <file href="content/consultative-arrangements.jpg" />
+      <file href="content/driver-safety.html" />
+      <file href="content/driver-safety.jpg" />
+      <file href="content/emergency-alert.html" />
+      <file href="content/emergency-alert.jpg" />
+      <file href="content/emergency-evacuation.html" />
+      <file href="content/emergency-evacuation.jpg" />
+      <file href="content/emergency-preparedness.html" />
+      <file href="content/emergency-preparedness.jpg" />
+      <file href="content/environmental-commitment.html" />
+      <file href="content/environmental-commitment.jpg" />
+      <file href="content/environmental-management.html" />
+      <file href="content/environmental-management.jpg" />
+      <file href="content/environmental-procedures.html" />
+      <file href="content/environmental-procedures.jpg" />
+      <file href="content/first-aiders.html" />
+      <file href="content/first-aiders.jpg" />
+      <file href="content/incident-reporting.html" />
+      <file href="content/incident-reporting.jpg" />
+      <file href="content/looking-after-yourself.html" />
+      <file href="content/looking-after-yourself.jpg" />
+      <file href="content/manual-handling.html" />
+      <file href="content/manual-handling.jpg" />
+      <file href="content/returning-to-work.html" />
+      <file href="content/returning-to-work.jpg" />
+      <file href="content/risk-control.html" />
+      <file href="content/risk-management-step1.jpg" />
+      <file href="content/risk-management-step2.jpg" />
+      <file href="content/risk-management-step3.jpg" />
+      <file href="content/risk-management-step4.jpg" />
+      <file href="content/risk-management-steps.jpg" />
+      <file href="content/risk-management.html" />
+      <file href="content/test-your-knowledge.html" />
+      <file href="content/test-your-knowledge.json" />
+      <file href="content/wardens.html" />
+      <file href="content/wardens.jpg" />
+      <file href="content/welcome.html" />
+      <file href="content/welcome.jpg" />
+      <file href="content/workers-compensation.html" />
+      <file href="content/workers-compensation.jpg" />
+      <file href="content/workplace-hazards.html" />
+      <file href="content/workplace-hazards.png" />
+      <file href="content/your-responsibility.html" />
+      <file href="content/your-responsibility.jpg" />
+      <file href="content/_cover.jpg" />
+    </resource>
+  </resources>
+</manifest>
+

@@ -1,0 +1,88 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+	    <title>Connect With Us Induction - People</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <link rel="stylesheet" href="../shared/css/font-awesome-4.0.3/font-awesome.min.css">
+        <link rel="stylesheet" href="../shared/css/sco-player.css">
+        <link rel="stylesheet" href="../shared/css/sco-print.css" media="print">
+        <script type="text/javascript" src="../shared/js/jquery/jquery-1.11.0.min.js"></script>
+        <script type="text/javascript" src="../shared/js/sco-player.js"></script>
+    </head>
+    <body class="sco-page pson-green">
+        <div class="page-wrapper">
+            <div class="page-content quiz-content no-print" id="test-your-knowledge" data-sco-beforeshow="initTestYourKnowledge">
+
+                <h2>Test your knowledge</h2>
+
+                <div class="quiz-intro">
+                    <p>In the following quiz, you will be asked a series of multiple-choice question. Answer each question by clicking on one of the choices available. Then move to the next question using the navigational buttons above.</p>
+                    <p>You must answer all questions correctly to get a passing score for this module.</p>
+                    <h3>Before you proceed</h3>
+                    <p>You must acknowledge you have read and understood all policies covered in this module.</p>
+                    <div>
+                        <input class="facb" id="accept-policy" name="accept-policy" value="yes" type="checkbox">
+                        <label for="accept-policy">I have read, understood and I accept these policies and procedures:</label>
+                        <ul>
+                            <li><a target="_blank" href="https://neo.pearson.com/docs/DOC-321579">Pearson Australia Health & Safety Policy and Standards</a></li>
+                            <li><a target="_blank" href="https://neo.pearson.com/community/enabling-functions/ges-finance/group_insurance_%26_risk_management/global-safety-%26-health">Group Health & Safety Policy and Standards</a></li>
+                            <li><a target="_blank" href="https://neo.pearson.com/docs/DOC-322518">Pearson Australia Health & Safety Issue Resolution Policy</a></li>
+                            <li><a target="_blank" href="https://neo.pearson.com/docs/DOC-333036">Pearson Australia Safe Driving Policy & Standards</a></li>
+                            <li><a target="_blank" href="https://neo.pearson.com/docs/DOC-310384">Hazard and Risk Management</a></li>
+                            <li><a target="_blank" href="https://neo.pearson.com/docs/DOC-286235">Incident Management</a></li>
+                            <li><a target="_blank" href="https://neo.pearson.com/docs/DOC-293674">Occupation Rehabilitation & RTW Program</a></li>
+                            <li><a target="_blank" href="https://neo.pearson.com/docs/DOC-321125">Pearson Australia Environment Policy</a></li>
+                            <li><a target="_blank" href="https://neo.pearson.com/docs/DOC-326947">Environmental Emergencies</a></li>
+                            <li><a target="_blank" href="https://neo.pearson.com/docs/DOC-316809">Action in the Workplace - Pearson Australia's Standard Operating Procedures</a></li>
+                        </ul>
+                    </div>
+                    <br/>
+                    <span class="btn-start-quiz btn btn-primary disabled" onclick="startTestYourKnowledge();">Start Quiz <i class="fa fa-chevron-right"></i></span>
+                </div>
+                <div class="quiz-questions"></div>
+                <div class="quiz-result"></div>
+
+                <script type="text/javascript">
+
+                    // Load questions
+                    var qzData;
+                    var qzContentId = 'test-your-knowledge';
+
+                    function initTestYourKnowledge() {
+
+                        if (typeof qzData === 'undefined') {
+                            $.getJSON("../content/test-your-knowledge.json", function (data) {
+                                qzData = data;
+                                scoPlayer.loadQuiz(qzContentId, qzData);
+                            });
+                        }
+
+                        if ($('#accept-policy').is(':checked') == true) {
+                            runTestYourKnowledge();
+                        }
+                        else {
+                            $('#accept-policy').unbind('click');
+                            $('#accept-policy').click(function () {
+                                // Allow quiz to start only when the 'accept policy' checkbox is checked.
+                                if ($('#accept-policy').is(':checked') == true) {
+                                    $('.btn-start-quiz').removeClass('disabled');
+                                }
+                                else {
+                                    $('.btn-start-quiz').addClass('disabled');
+                                }
+                            })
+                        }
+                    }
+
+                    function startTestYourKnowledge() {
+                        $('#test-your-knowledge>.quiz-intro').hide();
+                        // Start quiz.
+                        scoPlayer.startQuiz(qzContentId);
+                    }
+
+                </script>
+           </div>
+        </div>
+
+    </body>
+</html>

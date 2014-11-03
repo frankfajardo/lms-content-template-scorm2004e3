@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html id="player-html" lang="en" class="no-js">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width">
+        <title>Learning Content</title>
+        <link rel="stylesheet" href="../shared/css/font-awesome-4.0.3/font-awesome.min.css">
+        <link rel="stylesheet" href="../shared/css/sco-player.min.css">
+        <link rel="stylesheet" href="../shared/css/sco-print.css" media="print">
+        <script type="text/javascript" src="../shared/js/modernizr/modernizr-2.5.3.min.js"></script>
+        <script type="text/javascript" src="../shared/js/jquery/jquery-1.11.0.min.js"></script>
+        <script type="text/javascript" src="../shared/js/SCOBot/Local_API_1484_11.min.js"></script>
+        <script type="text/javascript" src="../shared/js/SCOBot/SCORM_API.min.js"></script>
+        <script type="text/javascript" src="../shared/js/SCOBot/SCOBot.min.js"></script>
+        <script type="text/javascript" src="../shared/js/sco-player.min.js"></script>
+        <script type="text/javascript">
+            function closeDown() {
+                scoPlayer.exit();
+                window.top.close();
+            }
+        </script>
+
+    </head>
+    
+    <body class="sco-player pson-green">
+ 
+        <div id="master-body">
+
+            <!-- Top banner (Menu) -->
+            <div id="master-header">
+                <img class="logo-print" src="../shared/img/pearson-logo-print.jpg" alt="Pearson Logo" />
+                <div class="webbar">
+                    <div class="content-wrapper">
+                        <div id="nav-grp-toc" class="nav-container">
+                            <div class="nav-btn nav-toc" title="Contents Menu"><i class="fa fa-bars"></i></div>
+                        </div><div id="nav-grp-help" class="nav-container">
+                            <div class="nav-btn nav-help" title="Help"><i class="fa fa-question"></i></div>
+                        </div><div id="nav-grp-counters" class="nav-container">
+                            <div id="page-counter" class="nav-page counter-panel">
+                                <div id="current-page" class="current-count" title="Current page number"></div><div id="total-pages" class="max-count" title="Total number of pages"></div>
+                            </div>
+                            <div id="question-counter" class="nav-quiz counter-panel">
+                                <div id="current-question" class="current-count" title="Current question number"></div><div id="total-questions" class="max-count" title="Total number of questions"></div>
+                            </div>
+                        </div><div id="nav-grp-steppers" class="nav-container">
+                            <div class="nav-btn nav-page nav-prev" title="Back"><i class="fa fa-chevron-left"></i></div>
+                            <div class="nav-btn nav-page nav-next" title="Next"><i class="fa fa-chevron-right"></i></div>
+                            <div class="nav-btn nav-quiz nav-prev" title="Previous Question"><i class="fa fa-chevron-left"></i></div>
+                            <div class="nav-btn nav-quiz nav-next" title="Next Question"><i class="fa fa-chevron-right"></i></div>
+                        </div><div id="nav-grp-exit" class="nav-container">
+                            <div class="nav-btn nav-page nav-exit" title="Exit Course" onclick="closeDown();"><i class="fa fa-sign-out"></i></div>
+                            <div class="nav-btn nav-quiz nav-exit" title="End Quiz"><i class="fa fa-sign-out"></i></div>
+                        </div>
+                    </div>
+                    <div id="dimmer-for-header" class="dimmer"></div>
+                </div>
+            </div>
+
+            <!-- Main content -->
+            <div id="master-detail">
+
+                <div class="content-wrapper">
+
+                    <div id="cover" class="page-wrapper" >
+                        <img src="../content/_cover.jpg" alt="Cover">
+                    </div>
+
+                    <div id="nojs-notice" class="page-wrapper">
+                        <h2>Please enable JavaScript on your browser</h2>
+                        <p>This course cannot be launched without enabling javascripts on your browser. Please check your browser settings and enable javascripts.</p>
+                        <p>For instructions on how to enable javascript on your browser, please refer to <a href="http://enable-javascript.com/" target="_blank">this website</a>.</p>
+                    </div>
+
+                    <div id="toc">
+                        <div id="dimmer-for-toc" class="dimmer"></div>
+                    </div>
+
+                    <div id="main-content"></div>
+
+                    <div id="help-guide">
+                        <h2>Help Guide</h2>
+                        <div id="help-nav">
+                            <span class="btn btn-primary help-prev"><i class="fa fa-chevron-left"></i> Back</span>
+                            <span class="btn btn-primary help-next">Next <i class="fa fa-chevron-right"></i></span>
+                            <span class="btn help-exit">Exit help</span>
+                        </div>
+                        <div class="help-section help-welcome">
+                            <h3>Here's a quick tour on completing this lesson</h3>
+                            <p>As you go through this guide, it will highlight areas and tell you what they are for.</p>
+                            <p>Click <em>Next</em> to proceed with this tour.</p>
+                        </div>
+                        <div class="help-section help-with-steppers">
+                            <h3>Stepping through this lesson</h3>
+                            <p>You will generally click the Next <span class="btn-icon"><i class="fa fa-chevron-right"></i></span>&nbsp;button 
+                               to go through the whole of this lesson. However, some sections may require you to interact with its 
+                                content&mdash;for example, click an image or follow a link&mdash;before you can continue. 
+                                In such case, you will need to follow the instruction on the page. When you complete all instructions, then you may continue.</p> 
+                            <p>Use the Back <span class="btn-icon"><i class="fa fa-chevron-left"></i></span>&nbsp;button if you wish to return to the previous section (or if in a quiz, to the previous question).</p>
+                        </div>
+                        <div class="help-section help-with-counters">
+                            <h3>Knowing where you are</h3>
+                            <p>The two numbers on the left of the Back button indicate: <em>(1)</em> the current section you are in, and <em>(2)</em> the total number of sections in this lesson.</p>
+                            <p>When in a quiz however, these will tell you: <em>(1)</em> the current question number you are in, and <em>(2)</em> how many questions there are in the quiz.</p>
+                        </div>
+                        <div class="help-section help-with-toc">
+                            <h3>Finding content within this lesson</h3>
+                            <p>Use the Contents Menu <span class="btn-icon"><i class="fa fa-bars"></i></span>&nbsp;button to show or hide the Table of Contents for the course.</p>
+                            <p>The Table of Contents lists all sections in this lesson. After you complete this help guide, you can try and bring up the Table of Contents and click an entry in it. It will take you to that section. A section will show a tick <i class="fa toc-item-tick"></i> if you have completed it. Otherwise, it will show a dot <i class="fa toc-item-dot"></i>.</p>
+                        </div>
+                        <div class="help-section help-with-content">
+                            <h3>The content window</h3>
+                            <p>As you go through this lesson, content is displayed in this area. As stated earlier, some sections may require you to interact with its content. This is where you will likely to see instructions in such case. Instructions will look like this:</p>
+                            <p class="instruction">Generally, an instruction will look like this.</p>
+                        </div>
+                        <div class="help-section help-with-exit-or-submit">
+                            <h3>Exit <span class="btn-icon"><i class="fa fa-sign-out"></i></span>&nbsp;button</h3>
+                            <p>Use this button to leave the lesson at any time.</p>
+                            <p>When in a quiz however, this button exits out of the quiz and back into the lesson.</p>
+                        </div>
+                        <div class="help-section help-done">
+                            <h3>That's it!</h3>
+                            <p>Thank you for completing this help tour. Please click <em>Exit Help</em> to return to the lesson.</p>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div id="dimmer-for-detail" class="dimmer"></div>
+
+            </div>
+
+            <!-- Bottom banner (Pearson logo) -->
+            <div id="master-footer">
+                <div class="webbar">
+                    <div class="content-wrapper">
+                        <img class="always-learning" src="../shared/img/alwayslearning-logo-transparent.png" alt="Always Learning" />
+                        <img class="pson-logo" src="../shared/img/pearson-logo-transparent.png" alt="Pearson Logo" />
+                    </div>
+                    <div id="dimmer-for-footer" class="dimmer"></div>
+                </div>
+            </div>
+
+        </div>
+
+        <div id="good-bye" class="hidden">
+            <div class="content-wrapper"><span></span></div>
+        </div>
+
+    </body>
+    
+</html>
+
+

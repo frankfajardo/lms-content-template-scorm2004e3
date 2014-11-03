@@ -1,0 +1,117 @@
+<!--
+    Use this template to create content pages.
+-->
+
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <!-- 
+            The title element gets the "heading" from sco-content.json, when this content is run through the sco-player.js.
+        -->
+	    <title></title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <link rel="stylesheet" href="../shared/css/font-awesome-4.0.3/font-awesome.min.css">
+        <link rel="stylesheet" href="../shared/css/sco-player.css">
+        <link rel="stylesheet" href="../shared/css/sco-print.css" media="print">
+        <script type="text/javascript" src="../shared/js/jquery/jquery-1.11.0.min.js"></script>
+        <script type="text/javascript" src="../shared/js/sco-player.js"></script>
+    </head>
+    <body class="sco-page pson-green">
+        <div class="page-wrapper">
+
+            <!--
+                The .page-content is the container for your page contents.
+                If the page content is a quiz, add "quiz-content" to your class attribute and assign an id:
+                    <div class="page-content quiz-content" id="quiz-id">
+
+                You can optionally give it an id attribute unique across all your page contents. Use the page name (without the "html").
+                    <div class="page-content" id="idUniqueToThisPageContent">
+
+                If you wish to run a function at certain events, you can add the following attribute with the names of the functions to run:
+                    data-sco-beforeshow       - Name of function to run everytime before a page is made visible to the user.
+                    data-sco-aftercompletion  - Name of function to run after interactions on the page have been completed by a user.
+                                                The function named here will also be called when a user resumes running the content from 
+                                                previous session. The player will run the corresponding function for all content pages that 
+                                                will be skipped in that session.
+
+                    <div class="page-content" data-sco-beforeshow="prepFunctionForThisPageContent" data-sco-aftercompletion="compFunctionForThisPageContent">
+            
+            -->
+            <div class="page-content">
+
+                <!-- 
+                    <h1 class="course-heading"></h1>
+
+                    The sco-player.js enforces the <h1> as the course heading.
+                    So you should not have <h1> in your content.
+ 
+                -->
+
+
+                <!--
+                    
+                    YOUR PAGE CONTENT GOES HERE
+
+                    ** For headings, start with h2. 
+
+
+
+                    FOR A QUIZ PAGE: 
+
+                    The following elements are required:
+
+                      .quiz-questions   - This is where the actual quiz questions are loaded.
+                      .quiz-result - This is where the results are shown when the quiz is ended.
+
+                    <div class="quiz-questions"></div>   
+                    <div class="quiz-result"></div>
+
+
+                    The player provides the following methods for the quiz:
+
+                      scoPlayer.loadQuiz(quizContainerId, quizData)
+                        where:
+                          quizContainerId - id of the .page-content element (see above)
+                          quizData        - object that contain quiz details (see template/quiz-data-template.json)
+                           
+                      scoPlayer.startQuiz()
+
+                -->
+
+
+                <!--
+
+                    YOU PAGE SCRIPTS CAN GO HERE
+
+                    The sco-player.js looks for the "data-sco-beforeshow" in the .page-content.
+                    It then looks for a function with that name within the window scope. 
+                    When it finds it, it calls this function *everytime* this content page is displayed.
+                    If your function binds/listens to events, ensure you are not binding functions to an event multiple times if you
+                    only mean to bind once.
+
+
+                <script type="text/javascript">
+
+                    function prepFunctionForThisPageContent() {
+
+                    }
+
+                </script>
+                -->
+
+                <!-- 
+
+                    YOU PAGE STYLES CAN GO HERE
+
+                    All styles you add here will be available to all content.
+                    Give .page-content a unique id (see comment above). 
+                    Then use that id in your selectors to limit styles to elements contained to this page. 
+
+                <style type="text/css"></style>
+                -->
+
+           </div>
+
+        </div>
+    </body>
+</html>

@@ -1,0 +1,62 @@
+{
+    "comments"            : "This quiz example has a passing score of 100% (passingScaledScore) so a user must correct answer 3 questions (quizSize) to pass this quiz. The quizWeight indicates how the result on this quiz impacts the overall score for the content."
+    "passingScaledScore"  : "100.00",
+    "quizWeight"          : "100.00",
+    "quizSize"            : "3",
+    "shuffleChoices"      : true,
+    "showHints"           : true,
+    "questions"           : [
+        {
+            "id"          : "subject-q1",
+            "text"        : "Question text",
+            "choices"     : [
+                "Choice A.", 
+                "Choice B.", 
+                "Choice C."
+            ],
+            "hints"     : [
+                "Hint for Choice A. Hints are optional. It provides a way to guide the learner to get to the correct answer.",
+                "Hint for Choice B",
+                "Hint for Choice C"
+            ],
+            "answer"      : "Choice A."
+        },
+        {
+            "id"          : "subject-q2",
+            "text"        : "Question text. This question has no hints, so it will use the player default hints.",
+            "choices"     : [
+                "True.", 
+                "False."
+            ],
+            "answer"      : "True"
+        },
+        {
+            "id"          : "subject-q3",
+            "text"        : "Question text. This question has no hints, so it will use the player default hints.",
+            "choices"     : [
+                "This is the correct answer.", 
+                "This is an incorrect answer.",
+                "This is another incorrect answer."
+            ],
+            "answer"      : "This is the correct answer."
+        },
+        {
+            "id"          : "subject-q4",
+            "text"        : "Additional question. Quiz will only ask 3 questions (based on quizSize). The player will randomly pick from the pool.",
+            "choices"     : [
+                "Choice 1.", 
+                "Choice 2.",
+                "Choice 3.",
+                "Choice 4.",
+                "All of the above."
+            ],
+            "answer"      : "All of the above.",
+            "hints"     : [
+                "Incorrect. Please try again.",
+                "Incorrect. Please try again.",
+                "Incorrect. Please try again.",
+                "Correct! If the last choice has 'both/all/none of the above', it will remain as last choice even if shuffleChoices is 'true'."
+            ],
+        },
+    ]
+}

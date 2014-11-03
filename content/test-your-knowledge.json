@@ -1,0 +1,181 @@
+{
+    "passingScaledScore"  : "100.00",
+    "quizWeight"          : "100.00",
+    "quizSize"            : "10",
+    "shuffleChoices"      : true,
+    "showHints"           : true,
+    "questions"           : [
+        {
+            "id"          : "ohse-q1",
+            "text"        : "Who is responsible for maintaining a safe work environment?",
+            "choices"     : [
+                "All employees.", 
+                "Our company directors.", 
+                "Only full-time employees."
+            ],
+            "answer"      : "All employees."
+        },
+        {
+            "id"          : "ohse-q2",
+            "text"        : "How can you reduce the risks associated with workplace hazards?",
+            "choices"     : [
+                "By referring to the risk management process and put in place controls to reduce the risk.", 
+                "Ignore any workplace hazards.", 
+                "Stretch before you do any work."
+            ],
+            "answer"      : "By referring to the risk management process and put in place controls to reduce the risk."
+        },
+        {
+            "id"          : "ohse-q3",
+            "text"        : "As you exit your worksite office lift, you notice that the lift does not stop at the correct level. In fact, you trip (without injury) between the lift and the floor. Should you report this near miss?",
+            "choices"     : [
+                "Yes.", 
+                "No.",
+                "No, only injuries should be reported."
+            ],
+            "answer"      : "Yes."
+        },
+        {
+            "id"          : "ohse-q4",
+            "text"        : "If an incident, injury or near miss has occurred, how quickly should you report it?",
+            "choices"     : [
+                "Within 24 hours.", 
+                "Within three days.",
+                "Within one week."
+            ],
+            "answer"      : "Within 24 hours."
+        },
+        {
+            "id"          : "ohse-q5",
+            "text"        : "Where or how would you record incidents and near misses?",
+            "choices"     : [
+                "On the incident/ near miss/ hazard online form. This link can be found on the NEO Australia Health Safety & Environment site.", 
+                "In your calendar.",
+                "They don't need to be recorded."
+            ],
+            "answer"      : "On the incident/ near miss/ hazard online form. This link can be found on the NEO Australia Health Safety & Environment site."
+        },
+        {
+            "id"          : "ohse-q6",
+            "text"        : "Is the following statement <strong>true</strong> or <strong>false</strong>: Only incidents that cause an injury should be reported. ",
+            "choices"     : [
+                "True.", 
+                "False."
+            ],
+            "answer"      : "False."
+        },
+        {
+            "id"          : "ohse-q7",
+            "text"        : "Who should you report workplace injuries to?",
+            "choices"     : [
+                "To your manager.", 
+                "To your doctor.", 
+                "No one."
+            ],
+            "answer"      : "To your manager."
+        },
+        {
+            "id"          : "ohse-q8",
+            "text"        : "The main aim when sitting at your workstation is to position yourself to avoid awkward and static postures?",
+            "choices"     : [
+                "Yes.",
+                "No."
+            ],
+            "answer"      : "Yes."
+        },
+        {
+            "id"          : "ohse-q9",
+            "text"        : "What would a continuous alarm sound indicate?",
+            "choices"     : [
+                "Stop work and start the evacuation procedure.",
+                "Lunch is ready.",
+                "Panic and run outside."
+            ],
+            "answer"      : "Stop work and start the evacuation procedure."
+        },
+        {
+            "id"          : "ohse-q10",
+            "text"        : "Is the following statement <strong>true</strong> or <strong>false</strong>: When conducting a risk assessment, you do not need to identify the likelihood and consequence of the risk.",
+            "choices"     : [
+                "True.",
+                "False."
+            ],
+            "answer"      : "False."
+        },
+        {
+            "id"          : "ohse-q11",
+            "text"        : "A large shipment of boxes has arrived at your office. You decide to place them on a push trolley and move them. What should you consider before you undertake this activity?",
+            "choices"     : [
+                "Safe Lifting Techniques and whether you require assistance.",
+                "Completing an incident or near miss report.",
+                "How to delegate the task to another employee."
+            ],
+            "answer"      : "Safe Lifting Techniques and whether you require assistance."
+        },
+        {
+            "id"          : "ohse-q12",
+            "text"        : "Is the following statement <strong>true</strong> or <strong>false</strong>: When moving within your worksite one of the basic safety rules is to <em>hold onto handrails at all times when walking up and down stairs</em>.",
+            "choices"     : [
+                "True.",
+                "False"
+            ],
+            "answer"      : "True."
+        },
+        {
+            "id"          : "ohse-q13",
+            "text"        : "You have been experiencing wrist pain lately whilst typing and it is not going away. What should you do?",
+            "choices"     : [
+                "Refer to the workstation ergonomic guidelines.",
+                "Report the <em>discomfort or pain whilst performing work tasks</em> with the online Incident & Hazard report form.",
+                "Both of the above."
+            ],
+            "answer"      : "Both of the above."
+        },
+        {
+            "id"          : "ohse-q14",
+            "text"        : "Is the following statement <strong>true</strong> or <strong>false</strong>: The Driver Safety Policy & Standards applies to all Pearson employees who are driving whilst performing Pearson work?",
+            "choices"     : [
+                "True.",
+                "False."
+            ],
+            "answer"      : "True."
+        },
+        {
+            "id"          : "ohse-q15",
+            "text"        : "Is the following statement <strong>true</strong> or <strong>false</strong>: When driving for the purposes of Pearson business; the use of mobile phones, including hands-free/Bluetooth, in any manner while operating a motor vehicle is strictly prohibited.",
+            "choices"     : [
+                "True.",
+                "False."
+            ],
+            "answer"      : "True."
+        },
+        {
+            "id"          : "ohse-q16",
+            "text"        : "Is the following statement <strong>true</strong> or <strong>false</strong>: The Driver Safety Policy and Standards states that all accidents and incidents; including near misses when driving (for Pearson Business) must be reported to your manager and incident online form with 24hours. This includes striking another vehicle while in motion; striking a stationary object or person; and being struck by another vehicle.",
+            "choices"     : [
+                "False.",
+                "True."
+            ],
+            "answer"      : "True."
+        },
+        {
+            "id"          : "ohse-q17",
+            "text"        : "One of Pearson Australia's Standards Environmental Operating Procedures is to:",
+            "choices"     : [
+                "Turn off all computers (including monitors), printers, photocopiers, and other equipment when not in use, and/or at the end of each day.",
+                "Only use filtered drinking water from the shops",
+                "Leave meeting room lights on when you have finished with the room"
+            ],
+            "answer"      : "Turn off all computers (including monitors), printers, photocopiers, and other equipment when not in use, and/or at the end of each day."
+        },
+        {
+            "id"          : "ohse-q18",
+            "text"        : "Is the following statement <strong>true</strong> or <strong>false</strong>: Pearson Australia has an Environmental Management System that is ISO14001 certified.",
+            "choices"     : [
+                "True.",
+                "False."
+            ],
+            "answer"      : "True."
+        }
+    ]
+}
