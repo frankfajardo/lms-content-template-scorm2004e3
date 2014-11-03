@@ -949,7 +949,7 @@ input.facb:checked+label:before {
     display: none!important;
 }
 .help-focus .toc-item {
-    background-color: #ffff89;
+    background-color: #ffffc1;
     color: #333;
 }
 
