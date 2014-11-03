@@ -1,0 +1,101 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+	    <title></title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <link rel="stylesheet" href="../shared/css/font-awesome-4.0.3/font-awesome.min.css">
+        <link rel="stylesheet" href="../shared/css/sco-player.css">
+        <link rel="stylesheet" href="../shared/css/sco-print.css" media="print">
+        <script type="text/javascript" src="../shared/js/jquery/jquery-1.11.0.min.js"></script>
+        <script type="text/javascript" src="../shared/js/sco-player.js"></script>
+    </head>
+    <body class="sco-page pson-green">
+        <div class="page-wrapper">
+            <div class="page-content" id="risk-control" data-sco-beforeshow="initRiskControl">
+
+                <h2>Risk Management &mdash; Hierarchy of Controls</h2>
+                <p>The hierarchy of controls provides you with a ranking of options that help you to eliminate or lower risks associated with workplace hazards. You should always select the highest possible level. <em>The highest level of control is to eliminate the risk.</em> If safety is our target we can reduce risks by using one of these controls.</p>
+                <ol class="accordion">
+                    <li>
+                        <div class="accordion-header collapsed must-be-clicked">Eliminate</div>
+                        <div class="accordion-detail hideable">
+                            <p>This is the most effective control. Eliminate the risk by completely removing it or changing the work processs&mdash;for example, removing chemicals onsite by cleaning the floors without chemicals.</p>
+                            <p>If elimination is not possible, consider <em>Substitution.</em></p>
+                        </div>               
+                    </li>
+
+                    <li>
+                        <div class="accordion-header collapsed must-be-clicked">Substitute</div>
+                        <div class="accordion-detail hideable">
+                            <p>Replace the hazard with something less dangerous&mdash;for example, replacing an old chair with an adjustable chair suited to the individual and their specific requirements.</p>
+                            <p>If substitution is not possible, use <em>Engineering Control</em>.</p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        <div class="accordion-header collapsed must-be-clicked">Engineering Control</div>
+                        <div class="accordion-detail hideable">
+                            <p>These controls change the physical characteristics of the workplace or equipment. This may involve redesigning the task, equipment or mechanical device&mdash;for example, implementing ventilation systems or non-slip material used on walkways.</p>
+                            <p>If engineering controls are not possible, consider <em>Isolation</em>.</p>
+                        </div>
+                    </li>
+                    
+                    <li>
+                        <div class="accordion-header collapsed must-be-clicked">Administrative Control</div>
+                        <div class="accordion-detail hideable">
+                            <p>Use policies, procedures, signs and training as ways of controlling the risk&mdash;for example, H&amp;S inductions, H&amp;S training and signage.</p>
+                            <p>It may be possible that <em>Personal Protective Equipment (PPE)</em> is also relevant.</p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        <div class="accordion-header collapsed must-be-clicked">Personal Protective Equipment</div>
+                        <div class="accordion-detail hideable">
+                            <p>Personal Protective Equipment or <em>PPE</em> provides protection against the hazard for example, safety vests, gloves, facial masks or a fall arrest harness. This may be used in conjunction with any of the previous controls.</p>
+                        </div>
+                    </li>
+                
+                </ol>
+
+                <p class="instruction for-interaction"><em>Click</em> each of the controls to understand what it means.</p>
+
+                <style type="text/css">
+                    #risk-control .accordion-header {
+                        font-size: 1.2em;
+                        font-weight: bold!important;
+                        margin-top: 1em;
+                    }
+                    @media only screen and (max-width: 720px) {
+                        #risk-control h2 {
+                            margin-right: 30%;
+                        }
+                    }
+                    @media only screen and (max-width: 440px) {
+                        #risk-control h2 {
+                            margin-right: 0%;
+                        }
+                        #risk-control img {
+                            margin-top: -1em!important;
+                        }                    
+                    }
+                    @media only screen and (max-width: 340px) {
+                        #risk-control img {
+                            margin-top: 0em!important;
+                        }                    
+                    }
+                </style>
+
+                <script>
+                    function initRiskControl() {
+                        if ($('#risk-control .must-be-clicked').length > 0) {
+                            var accordion = $('#risk-control .accordion');
+                            scoPlayer.accordionCollapseAll(accordion);
+                        }
+                    }
+                </script>
+
+
+            </div>
+        </div>
+    </body>
+</html>
