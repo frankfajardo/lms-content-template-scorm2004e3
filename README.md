@@ -11,22 +11,27 @@ This is a SCORM 2004 3E package template I used to create learnning contents in 
 
 ## How to Use ##
 
-* This template allows you to build your content section by section. Each section is, at least, a single HTML page which you can author using the template **templates/sco-page-template.html**. You can read comments included in the template for more details.
-* All your section HTML files should reside in the **content** folder. It is up to you if you wish to have subfolders to further split your content. But keep it simple.
-* You can test each section by clicking the HTML file in your file explorer, and it should launch your web browser. You can check out HTML files already in the **content** folderof this template. These are all available to provide as sample. You can delete all of these files when you start buiding your content sections.
-* Then you can repeat this process for all sections.
-* As you build each section, you compile your sections into a into a table of content. This template uses (or expects you to use) a JSON file specifically in the path **launch/sco-content.json**. This table will eventually build the "Table of Content" for your SCO.
-* To create a section for your quiz, you can use the same template as your normal section. There are comments in the template about building a quiz section. You will need to also create your quiz data in JSON format using the template **templates/quiz-data-template.html**.
-* The template allows you to create multiple quiz sections in your SCO. It performs a simple rollup of scores which it sends to your LMS.
-* When you have completed all your sections, you can test your whole content. But before you do so, provide a **content/_cover.jpg** image which your content can use as initial display whilst building all sections of your content. A sample is included with this template.
-* To test your content without an LMS, I use WebMatrix to open the whole folder as a website. And I can simply launch the starting page **launch/sco-player.html**. It is important that you run the whole content using a webserver. WebMatrix provides you the convenience of launching your folder as a website using IISExpress. You can use equivalent means if you wish.
-* When you are happy with your content, it is time to package it and send to your LMS.
-* I use [RELOAD Editor] to create my **imsmanifest.xml**. This template comes with a sample imsmanifest.xml for your reference.
+This template allows you to build your SCO content page by content page. A content page can also be a full quiz. Each content page is single HTML file with supporting files (images and other embedded content). When you have built all your content pages, then you can organise them into your full content.
+
+This template comes with a player for your SCO. The player expects the content pages to follow the templates provided.
+
+1. Start by copying this template, and renaming the main folder to the name of your SCO.
+2. Clear the **content** folder. This is where all your content files (html, image files, other embedded or dynamically loaded content). 
+3. Create each content page using the template **templates/sco-page-template.html**. You can read comments included in the template for more details. Place your resulting files in the **content** folder. It is up to you if you wish to have subfolders to further split your content. But keep it simple. You can check out HTML files already in the **content** folder in this template. These files are samples. 
+4. Test each content page. You should be able to click the HTML file in your file explorer, and it should launch your web browser with your HTML content. 
+5. Repeat these steps for all content pages.
+6. To create a quiz, you can use the same template **templates/sco-page-template.html**. There are comments in the template about building a quiz. You will need to also create your quiz data in JSON format using the template **templates/quiz-data-template.html**. The SCO player provide helper method to load and start the quiz. Refer to comments in the template.
+7. The template allows you to create multiple quiz sections in your SCO. It performs a simple rollup of scores which it sends to your LMS.
+8. As you build each content page, you need to list your sections into a JSON file **launch/sco-content.json**. This is what this SCO template will use to compile your whole SCO, and built the "Table of Content" for your SCO. 
+9. When you have completed all your content pages, you can test your whole content. But before you do so, provide a **content/_cover.jpg** image which the player can initially display whilst uploading your SCO's content pages. A sample is included with this template. Note the size of the _cover.jpg image provided.
+10. You can test your SCO without an LMS. You will not be able to test LMS related functions (like scoring of quiz) but you can test the flow of your SCO. I use WebMatrix to open the whole folder as a website. And I can simply launch the starting page **launch/sco-player.html**. It is important that you run the whole content using a webserver. WebMatrix provides you the convenience of launching your folder as a website using IISExpress. You can use equivalent techniques and software if you wish.
+11. When you are happy with your content, it is time to package it and send to your LMS. I use [RELOAD Editor] to update my **imsmanifest.xml**. This template comes with a sample imsmanifest.xml for your reference. Once all okay, [RELOAD Editor] can also create the SCORM Package. This is what you can import to your LMS.
+12. For a test LMS, you can use [SCORM Cloud]. It is a free LMS for non-commercial use. So you can create an account with them and then use it to upload and test your SCO. Please be aware of the conditions of use of this facility.
 
 
 ## Folder Organization ##
 
-  * Standard SCORM files you can leave as is. There is no need to change these files.
+  * Standard SCORM files you can **leave as is**. There is no need to change these files.
 
     * common/*
     * extend/*
@@ -35,12 +40,12 @@ This is a SCORM 2004 3E package template I used to create learnning contents in 
     * vocab/*
 
 
-  * Standard SCORM files that you must change.
+  * Standard SCORM files that you **must update**.
  
     * imsmanifest.xml - this is essential for your LMS to recognise your content. Note that this file references the files above. You must leave those references as they are.
 
 
-  * Standard Template Content - These are files used by the template to run your content. There is no need to change these files unless you wish to change how this template behaves.
+  * Standard Player Content - These are files used by the player to run your content. *There is no need to change these files unless you wish to change how this player behaves.*
  
     * launch/sco-player.html
     * shared/css/*
@@ -48,15 +53,14 @@ This is a SCORM 2004 3E package template I used to create learnning contents in 
     * shared/js/*
 
 
-  * Files you must change:
+  * Files you **must change or provide**:
  
-    * imsmanifest.xml - this is essential for you content to be properly recognised by your LMS
     * content/_cover.jpg - this is the flash image shown when the content is launched.
-    * content/* - these are your section file (*.html, image files, etc.)
-    * launch/sco-content.json - this is your content table
+    * content/* (see explanation above)
+    * launch/sco-content.json - this is your content page listing
 
 
-  * Files you can exclude from your package to reduce size:
+  * Files you can **exclude from your SCORM package to reduce size**:
  
     * templates - you can remove the whole folder
     * README.md - this file
@@ -92,4 +96,3 @@ This project uses the following open-source projects and tools:
 [RELOAD Editor]:http://www.reload.ac.uk/new/editor.html
 [SCORM Cloud]:https://cloud.scorm.com/
 [WebMatrix]:http://www.microsoft.com/web/webmatrix/
-    
