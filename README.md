@@ -84,7 +84,7 @@ This project uses the following open-source projects and tools:
 
 
 
-[Frank Fajardo]:mailto:frank.fajardo@pearson.com
+[Frank Fajardo]:https://neo.pearson.com/people/UFajaFr
 [FontAwesome]:http://fortawesome.github.io/Font-Awesome/
 [jQuery]:http://jquery.com
 [Modernizr]:http://modernizr.com/
