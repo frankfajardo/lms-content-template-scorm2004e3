@@ -247,7 +247,7 @@ var scoPlayer = scoPlayer || {};
         if (!allContentPagesLoaded) {
             setTimeout(function () {
                 startPlayer();
-            }, 500);
+            }, 100);
             return;
         }
 
@@ -264,13 +264,10 @@ var scoPlayer = scoPlayer || {};
                     var htmlMsg = '<h3>Resume your last session?</h3>' +
                                   '<p>Click <em>Yes</em> to resume. Or click <em>No</em> to start from the beginning.</p>'
                     showDialog(htmlMsg, 
-                                ["*Yes","No"], 
-                                [function () {
-                                    scoPlayer.playContentFromBookmarkedPage();
-                                }, 
-                                 function () {
-                                    scoPlayer.playContentFromBeginning();
-                                }]);
+                                {
+                                    "*Yes": function () { scoPlayer.playContentFromBookmarkedPage(); }, 
+                                    "No": function () { scoPlayer.playContentFromBeginning(); }
+                                });
                     return;
                 }
             }
@@ -390,9 +387,9 @@ var scoPlayer = scoPlayer || {};
         if (elem.hasClass('disabled') === true) {
             if (elem.hasClass('nav-next') === true) {
                 if (currentPage < totalPages - 1) {
-                    showDialog('<h3>The <em>Next</em> button is disabled.</h3><p>Please see instructions on the page to continue.</p>', 
-                                "*Ok", 
-                                null);
+                    showDialog(
+                        '<h3>The <em>Next</em> button is disabled.</h3><p>Please see instructions on the page to continue.</p>', 
+                        { "*Ok" : null });
                 }
             }
             return;
@@ -547,38 +544,44 @@ var scoPlayer = scoPlayer || {};
     // Shows a dialog message with optional buttons. This also allows you to pass functions to run when user clicks the buttons.
     // Primary buttons (highlighted) can be marked by an asterisk at the beginning of the button text: e.g. "*Proceed".
     // All buttons will close the dialog when clicked. So if a button's role is just to close the dialog, pass 'null' on the corresponding function.
-    function showDialog(htmlMsg, btnTexts, btnFuncs) {
-        
-        // Number of button text must match number of functions provided.
-        if (btnTexts instanceof Array || btnFuncs instanceof Array) {
-            if (btnTexts.length != btnFuncs.length) return;
+    function showDialog(htmlMsg, buttons, options) {
+
+        var settings = {
+            dim_bg: true
         }
+
+        $.extend(settings, options);
 
         setDialogContent(htmlMsg);
 
-        var btnCount = (btnTexts instanceof Array) ? btnTexts.length : 1;
-
+        // Add buttons to the dialog if provided.
         $('#dialog-buttons').html('');
-        for(i=0; i < btnCount; i++) {
-            var fName = (btnFuncs instanceof Array) ? btnFuncs[i] : btnFuncs;
-            fName = (fName !== null) ? $.trim(fName) : null;
-            var bText = (btnTexts instanceof Array) ? $.trim(btnTexts[i]) : $.trim(btnTexts);
-            var bClas = 'btn';
-            // An asterisk at the beginning of the text indicates it is a primary button.
-            if (bText.indexOf('*') == 0) {
-                bClas += ' btn-primary'
-                bText = bText.substr(1);
-            }
-            if (btnFuncs == null || btnFuncs[i] === null) {
-                $('#dialog-buttons').append('<span class="' + bClas + '">' + bText + '</span>');
-            }
-            else {
-                $('#dialog-buttons').append('<span class="' + bClas + '" onclick="f=' + fName + ';f()">' + bText + '</span>');
+        if (buttons !== 'undefined' && buttons !== null) {
+            for(var buttonName in buttons) {
+
+                var fn = (buttons[buttonName] === null) ? $.trim(fn) : null;
+                var bt = $.trim(buttonName);
+                var cls = 'btn';
+                // An asterisk at the beginning of the buttonName indicates it is a primary button.
+                if (bt.indexOf('*') == 0) {
+                    cls += ' btn-primary'
+                    bt = bt.substr(1);
+                }
+                if (fn == null) {
+                    $('#dialog-buttons').append('<span class="' + cls + '">' + bt + '</span>');
+                }
+                else {
+                    $('#dialog-buttons').append('<span class="' + cls + '" onclick="f=' + fn + ';f()">' + bt + '</span>');
+                }
             }
         }
 
         showTopOfPage();
-        $('.dimmer').show(); // Activate dimmers
+
+        // Dim background content
+        if (settings.dim_bg) {
+            $('.dimmer').show(); // Activate dimmers
+        }
 
         var w = ($(window).width * 0.95 < $('#dialog').width) ? $(window).width * 0.95 : $('#dialog').width;
         $('#dialog').css({'width':w}).show();
@@ -734,17 +737,19 @@ var scoPlayer = scoPlayer || {};
             totalPages = contentPages.length;
             for (var i = 0; i < totalPages; i++) {
 
+                var cls = uniquePageClass(i);
+
                 // Append page to table of contents
-                $("#toc>.dimmer").before('<div class="toc-item" data-target="' + uniquePageClass(i) + '">' + contentPages[i].title + '</div>');
+                $("#toc>.dimmer").before('<div class="toc-item" data-target="' + cls + '">' + contentPages[i].title + '</div>');
 
                 // Append page to the main content area.
-                $("#main-content").append('<div class="page ' + uniquePageClass(i) + ' page-wrapper"></div>');
-                var containerSelector = "."+uniquePageClass(i);
+                $("#main-content").append('<div class="page ' + cls + ' page-wrapper"></div>');
+
                 var fullpath = contentPages[i].location;
-                loadPage(containerSelector, fullpath);
+                loadPage("." + cls, fullpath);
             }
 
-            allContentPagesLoaded = true;
+            waitForAllPagesToLoad();
         }
     }
 
@@ -754,13 +759,30 @@ var scoPlayer = scoPlayer || {};
             var pageContent = $(".page-content:eq(0)", data).prepend('<div class="course-heading">' + contentHeading + '</div>');
             var pageContainer = $(containerSelector);
             if (pageContainer.length === 0) return;
-            pageContainer.html(pageContent).hide();
+            pageContainer.html(pageContent).addClass('page-loaded').hide();
         });
     }
 
     // Returns text in format 'page-N'
     function uniquePageClass(pageNbr) {
         return "page-" + pageNbr.toString();
+    }
+
+    // Waits for all pages to load
+    function waitForAllPagesToLoad(fn) {
+        if ($("#main-content>.page-loaded").length < totalPages) {
+            setTimeout(function () {
+                waitForAllPagesToLoad(fn);
+            }, 500);
+            return;
+        }
+        else {
+            allContentPagesLoaded = true;
+            if ($.trim(fn).indexOf('function') == 0) {
+                f=fn;
+                f();
+            }
+        }           
     }
 
     // This function starts playing the content at the given starting page.
@@ -894,8 +916,7 @@ var scoPlayer = scoPlayer || {};
 
         // Unmark current page and TOC item.
         cp.removeClass('current');
-        $('.toc-item.current').removeClass('current');            
-        
+        $('.toc-item.current').removeClass('current');                
     }
 
 
