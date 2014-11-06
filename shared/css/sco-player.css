@@ -108,13 +108,6 @@ a {
     background-color: #f7f7f7;
 }
 
-a.must-be-clicked:after {
-    font-family: 'FontAwesome';
-    content: '\f08d';
-    color: #5b5b5b;
-    border-bottom: 0;
-    margin-left: 0.5em;
-}
 
 li {
     margin-bottom: 1px;
@@ -234,8 +227,13 @@ body.pson-green {
     font-style: italic;
 }
 
-.pson-green a.must-be-clicked:after {
-    color: #73B458;
+a.must-be-clicked:after {
+    font-family: 'FontAwesome';
+    content: '\f08d';
+    color: #ef9700;
+    border-bottom: 0;
+    margin-left: 0.25em;   
+    text-shadow: 1px 1px 1px #000;
 }
 
 .pson-green a:hover {
