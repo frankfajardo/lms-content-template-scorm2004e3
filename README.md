@@ -69,7 +69,7 @@ This template comes with a player for your SCO. The player expects the content p
     * shared/js/SCOBot/SCORM_API.js - the player uses the minified version.
     * shared/js/SCOBot/SCOBot.js - the player uses the minified version.
     * shared/js/SCOBot/Local_API_1484_11.js - the player uses the minified version.
-    * the .git folder - if you are using GIT for source version management. You can manually delete this from your SCORM ZIP package.
+    * .git folder (or similar), if you are using GIT for source version management. You can manually delete this from your SCORM ZIP package.
 
 
 ## Contact ##
