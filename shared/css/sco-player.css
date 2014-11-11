@@ -968,7 +968,6 @@ input.facb:checked+label:before {
     position: absolute;
     right: 0;
     top: -1.0em;
-    margin-right: -1px;
     font-size: 0.84em;
     text-transform: uppercase;
 }

@@ -16,6 +16,7 @@ var scoPlayer = scoPlayer || {};
     this.version = '1.0.0';
 
     this.showDialog = showDialog;
+    this.closeDialog = closeDialog;
 
     // Expose functions related to the quiz.
     this.loadQuiz = loadQuiz;
@@ -105,9 +106,9 @@ var scoPlayer = scoPlayer || {};
         // Initialise SCORM API
         if (typeof window['SCORM_API'] === "function") {
             scorm = new SCORM_API({
-                debug:             true,
-                throw_alerts:      true,
-                time_type:         'GMT'
+                    debug:             true,
+                    throw_alerts:      false,
+                    time_type:         'GMT'
             });
         }
 
@@ -251,8 +252,8 @@ var scoPlayer = scoPlayer || {};
             return;
         }
 
-        // Initialise SCORM data.
-        if (typeof SB !== 'undefined') {
+        // Initialise SCORM data. Then play content.
+        if (typeof SB !== "undefined") {
             var modeVal = SB.getValue('cmi.mode');
             var creditVal = SB.getValue('cmi.credit');
             scoModeIsNormal = (modeVal === 'normal');
@@ -262,7 +263,7 @@ var scoPlayer = scoPlayer || {};
                 completedPages = getScoCompletedPages();
                 if (bookmarkedPage > 0 && bookmarkedPage < totalPages) {
                     var htmlMsg = '<h3>Resume your last session?</h3>' +
-                                  '<p>Click <em>Yes</em> to resume. Or click <em>No</em> to start from the beginning.</p>'
+                                    '<p>Click <em>Yes</em> to resume. Or click <em>No</em> to start from the beginning.</p>'
                     showDialog(htmlMsg, 
                                 {
                                     "*Yes": function () { scoPlayer.playContentFromBookmarkedPage(); }, 
@@ -297,7 +298,8 @@ var scoPlayer = scoPlayer || {};
         $('#good-bye span').text('Good bye!');
         $('#good-bye').removeClass('hidden');
 
-        if (SB !== 'undefined') {
+        // Suspend/finish SCO.
+        if (typeof SB !== "undefined") {
             if (scoSuspend) {
                 SB.suspend();
             }
@@ -305,12 +307,11 @@ var scoPlayer = scoPlayer || {};
                 SB.finish();
             }
         }
-
     }
 
     // This resets teh SCO progress info
     function resetScoProgress() {
-        if ((typeof SB !== 'undefined') && scoModeIsNormal && scoIsRunForCredit) {
+        if (typeof SB !== "undefined") {
             // Set default ratings at the beginning. These should eventually be overwritten when the course has a quiz.
             SB.setValue('cmi.progress_measure', '0');
             SB.setValue('cmi.score.raw', '0');
@@ -373,7 +374,7 @@ var scoPlayer = scoPlayer || {};
 
     // Sets the SCO to suspend by default if the player is stopped before the content is completed
     function initialiseScoExitOption() {
-        if ((typeof SB !== 'undefined') && scoModeIsNormal) {
+        if (typeof SB !== "undefined" && scoModeIsNormal) {
             // Set exit mode to 'suspend' by default.
             SB.setValue('cmi.exit', 'suspend');
             scoSuspend = true;
@@ -860,23 +861,24 @@ var scoPlayer = scoPlayer || {};
 
     // Sets the bookmark for the SCO
     function setScoBookmark(pageNumber) {
-        if ((typeof SB !== 'undefined') && scoModeIsNormal) {
+        if (typeof SB !== "undefined" && scoModeIsNormal) {
             SB.setValue('cmi.location', pageNumber.toString());
         }
     }
 
     // Gets the bookmark for the SCO
     function getScoBookmark() {
-        var bookmark = 0;
-        if (typeof SB !== 'undefined') {
-            bookmark = toInteger(SB.getValue('cmi.location'));
+        if (typeof SB !== "undefined") {
+            return toInteger(SB.getValue('cmi.location'));
         }
-        return bookmark;
+        else {
+            return -1;
+        }
     }
 
     // Sets the list of completed pages in the SCO's suspend-data
     function setScoCompletedPages(compPages) {
-        if (typeof SB !== 'undefined') {
+        if (typeof SB !== "undefined") {
             if (compPages instanceof Array || compPages.length > 0) {
                 SB.setValue('cmi.suspend_data', compPages.join(','));
             }
@@ -889,11 +891,9 @@ var scoPlayer = scoPlayer || {};
     // Gets the completed pages list from the SCO's suspend-data
     function getScoCompletedPages() {
         var compPages = [];
-        if (typeof SB !== 'undefined') {
-            var suspData = SB.getValue('cmi.suspend_data'); // This should return a string.
-            if (typeof suspData !== 'undefined' && suspData.length > 0) {
-                compPages = suspData.split(',');      
-            }
+        var suspData = SB.getValue('cmi.suspend_data'); // This should return a string.
+        if (typeof suspData !== 'undefined' && suspData.length > 0) {
+            compPages = suspData.split(',');      
         }
         return compPages;
     }
@@ -929,7 +929,10 @@ var scoPlayer = scoPlayer || {};
     // Load Questions for a specific quiz (identified by the containerSelector)
     function loadQuiz(qzContentId, qzData) {
         
-        if (typeof qzData === 'undefined') return false;
+        if (typeof qzData === 'undefined') { 
+            
+            return false;
+        }
 
         // If unable to find container, do nothing.
         qzContent = $('#'+qzContentId);
@@ -1068,7 +1071,7 @@ var scoPlayer = scoPlayer || {};
         // Initialize date field for tracking time spent for each question
         qzStartTime = new Date();
 
-        // If in browse or review mode or non-credit, or if there is no more unanswere question, then end quiz right away.
+        // If in browse or review mode or non-credit, or if there is no more unanswered question, then end quiz right away.
         if (!scoModeIsNormal || !scoIsRunForCredit || uq.length === 0) {
             endQuiz(); // Go straight to results
             enableNav('.nav-toc'); // Enable TOC.
@@ -1169,14 +1172,6 @@ var scoPlayer = scoPlayer || {};
             SB.setValue('cmi.progress_measure', overallScore/100);
             SB.setValue('cmi.score.raw', overallScore);
             SB.setValue('cmi.score.scaled', overallScore/100);
-
-            // Let the LMS mark the content as Passed or Failed.
-            //if (qzPassed) {
-            //    SB.setValue('cmi.success_status', 'passed');
-            //}
-            //else {
-            //    SB.setValue('cmi.success_status', 'failed');
-            //}
 
             // If all quiz has been launched, do not suspend anymore.
             if ($('.quiz-content[data-qstarted="false"]').length === 0) {
