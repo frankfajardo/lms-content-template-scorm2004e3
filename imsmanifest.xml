@@ -47,7 +47,7 @@
     </organization>
   </organizations>
   <resources>
-    <resource identifier="MainResource" adlcp:scormType="sco" type="text/html" href="launch/sco-player.html">
+    <resource identifier="MainResource" adlcp:scormType="sco" type="webcontent" href="launch/sco-player.html">
       <file href="launch/sco-content.json" />
       <file href="launch/sco-player.html" />
       <file href="shared/css/font-awesome-4.0.3/fonts/fontawesome-webfont.eot" />
