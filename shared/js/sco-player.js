@@ -261,10 +261,6 @@ var scoPlayer = scoPlayer || {};
             if (scoModeIsNormal) {
                 bookmarkedPage = getScoBookmark();
                 completedPages = getScoCompletedPages();
-
-                bookmarkedPage = 3;
-                completedPages = [0,1,2];
-
                 if (bookmarkedPage > 0 && bookmarkedPage < totalPages) {
                     var htmlMsg = '<h3>Resume your last session?</h3>' +
                                     '<p>Click <em>Yes</em> to resume. Or click <em>No</em> to start from the beginning.</p>'
