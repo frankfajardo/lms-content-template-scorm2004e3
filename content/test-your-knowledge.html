@@ -22,7 +22,7 @@
                     <p>You must acknowledge you have read and understood all policies covered in this module.</p>
                     <div>
                         <input class="facb" id="accept-policy" name="accept-policy" value="yes" type="checkbox">
-                        <label for="accept-policy">I have read, understood and I accept these policies and procedures:</label>
+                        <label class="checkbox" for="accept-policy">I have read, understood and I accept these policies and procedures:</label>
                         <ul>
                             <li><a target="_blank" href="https://neo.pearson.com/docs/DOC-321579">Pearson Australia Health & Safety Policy and Standards</a></li>
                             <li><a target="_blank" href="https://neo.pearson.com/community/enabling-functions/ges-finance/group_insurance_%26_risk_management/global-safety-%26-health">Group Health & Safety Policy and Standards</a></li>
@@ -38,7 +38,7 @@
                         </ul>
                     </div>
                     <br/>
-                    <span class="btn-start-quiz btn btn-primary disabled" onclick="startTestYourKnowledge();">Start Quiz <i class="fa fa-chevron-right"></i></span>
+                    <span class="btn-start-quiz btn btn-primary disabled">Start Quiz <i class="fa fa-chevron-right"></i></span>
                 </div>
                 <div class="quiz-questions"></div>
                 <div class="quiz-result"></div>
@@ -48,6 +48,13 @@
                     // Load questions
                     var testYourKnowledge = testYourKnowledge || {}
                     testYourKnowledge.qzContentId = 'test-your-knowledge';
+
+                    $('.btn-start-quiz').off('click');
+                    $('.btn-start-quiz').on('click', function () {
+                        if (!($(this).hasClass('disabled'))) {
+                            startTestYourKnowledge();
+                        }
+                    });
 
                     function initTestYourKnowledge() {
                         if (typeof testYourKnowledge.qzData === "undefined") {
@@ -70,21 +77,22 @@
                             runTestYourKnowledge();
                         }
                         else {
-                            $('#accept-policy').unbind('click');
-                            $('#accept-policy').click(function () {
+                            $('#accept-policy').off('click');
+                            $('#accept-policy').on('click', function () {
                                 // Allow quiz to start only when the 'accept policy' checkbox is checked.
                                 if ($('#accept-policy').is(':checked') == true) {
                                     $('.btn-start-quiz').removeClass('disabled');
+                                    $(this).next('label.checkbox').addClass('checked');
                                 }
                                 else {
                                     $('.btn-start-quiz').addClass('disabled');
+                                    $(this).next('label.checkbox').removeClass('checked');
                                 }
                             })
                         }
                     }
 
                     function startTestYourKnowledge() {
-                        initTestYourKnowledge();
                         $('#test-your-knowledge>.quiz-intro').hide();
                         scoPlayer.startQuiz(testYourKnowledge.qzContentId); // Start quiz.
                     }

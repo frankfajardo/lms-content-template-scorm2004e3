@@ -38,6 +38,7 @@ var scoPlayer = scoPlayer || {};
     this.accordionCollapseAll = accordionCollapseAll;
     this.accordionExpandAll = accordionExpandAll;
 
+    this.redrawPseudos = redrawPseudos;
 
     //------------------------------------------------------------------------------------------------
     //  Internal variables and functions
@@ -235,7 +236,19 @@ var scoPlayer = scoPlayer || {};
             readMoreOrLessOf($(this));
             e.stopPropagation();
         })     
-        
+
+        // Add FontAwesome checkboxes
+        $('label.checkbox').prepend('<i class="fa fa-check"></i>');
+
+        // Handle clicks on checkbox labels
+        if (ieVersion === 8) {
+            $('body').off('click', 'label.checkbox');
+            $('body').on('click', 'label.checkbox', function () {
+                var cb = $(this).prev('input[type="checkbox"]');
+                cb.trigger('click');
+            });
+        }
+                
         // Reset accordion elements, if any.
         initialiseAccordions();     
 
@@ -567,7 +580,7 @@ var scoPlayer = scoPlayer || {};
                     cls += ' btn-primary'
                     bt = bt.substr(1);
                 }
-                if (fn === "") {
+                if (fn === "" || fn === null) {
                     $('#dialog-buttons').append('<span class="' + cls + '">' + bt + '</span>');
                 }
                 else {
@@ -1136,6 +1149,7 @@ var scoPlayer = scoPlayer || {};
                         clearChoice($(this));
                     }
                 })
+                var qzContentId = qzContent.parents('.page-content').attr('id');
                 startQuiz(qzContentId);
                 e.stopPropagation();
             })
@@ -1515,3 +1529,21 @@ var ieVersion = (function () {
     return v > 4 ? v : undef;
 
 })();
+
+if (!Array.prototype.indexOf) {
+    Array.prototype.indexOf = function(elt /*, from*/)
+    {
+        var len = this.length >>> 0;
+
+        var from = Number(arguments[1]) || 0;
+        from = (from < 0) ? Math.ceil(from) : Math.floor(from);
+        if (from < 0)
+            from += len;
+
+        for (; from < len; from++) {
+        if (from in this && this[from] === elt)
+            return from;
+        }
+        return -1;
+    };
+}

@@ -618,7 +618,7 @@ input.facb[type=checkbox] {
 input.facb+label {
     display: inline-block;
 }
-input.facb+label:before {  
+/*input.facb+label:before {  
     content: "\f00c";    
     font-family: FontAwesome;
     display: inline-block;  
@@ -631,13 +631,28 @@ input.facb+label:before {
     line-height: 1em;
     text-align: center;  
     color: #e4e4e4;
-}  
+    margin-bottom: -0.15em;    
+}
 input.facb:checked+label:before {  
     color: #000;
 } 
-.pson-green input.facb:checked+label:before {  
+.pson-green input.facb:checked+label:before
+.pson-green label.checked:before {  
     color: #008b5d;
-} 
+}*/
+
+label.checkbox>.fa-check {
+    color: #e4e4e4;
+    border: 1px solid #888;
+    border-radius: 3px;
+    margin-right: 1em;    
+}
+label.checkbox.checked>.fa-check {
+    color: #000;
+}
+.pson-green label.checkbox.checked>.fa-check {
+    color: #008b5d;
+}
 
 
 .read-more>span {
