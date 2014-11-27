@@ -237,14 +237,11 @@ var scoPlayer = scoPlayer || {};
             e.stopPropagation();
         })     
 
-        // Add FontAwesome checkboxes
-        $('label.checkbox').prepend('<i class="fa fa-check"></i>');
-
-        // Handle clicks on checkbox labels
+        // Handle clicks on Fontawesome checkbox labels
         if (ieVersion === 8) {
-            $('body').off('click', 'label.checkbox');
-            $('body').on('click', 'label.checkbox', function () {
-                var cb = $(this).prev('input[type="checkbox"]');
+            $('body').off('click', 'input.facb+label');
+            $('body').on('click', 'input.facb+label', function () {
+                var cb = $(this).prev('input.facb');
                 cb.trigger('click');
             });
         }
@@ -773,6 +770,7 @@ var scoPlayer = scoPlayer || {};
             var pageContainer = $(containerSelector);
             if (pageContainer.length === 0) return;
             pageContainer.html(pageContent).addClass('page-loaded').hide();
+            pageContainer.find('input.facb+label').prepend('<i class="fa fa-check"></i>');
         });
     }
 
@@ -1149,7 +1147,7 @@ var scoPlayer = scoPlayer || {};
                         clearChoice($(this));
                     }
                 })
-                var qzContentId = qzContent.parents('.page-content').attr('id');
+                var qzContentId = qzContent.attr('id');
                 startQuiz(qzContentId);
                 e.stopPropagation();
             })
