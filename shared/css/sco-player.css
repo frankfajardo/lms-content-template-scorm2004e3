@@ -624,13 +624,7 @@ input.facb+label>.fa-check {
     border-radius: 3px;
     margin-right: 1em;    
 }
-input.facb+label:checked>.fa-check {
-    color: #000;
-}
-.pson-green input.facb+label:checked>.fa-check {
-    color: #008b5d;
-}
-/*input.facb+label:before {  
+input.facb+label:before {  
     content: "\f00c";    
     font-family: FontAwesome;
     display: inline-block;  
@@ -648,10 +642,15 @@ input.facb+label:checked>.fa-check {
 input.facb:checked+label:before {  
     color: #000;
 } 
-.pson-green input.facb:checked+label:before
+label.checked:before {  
+    color: #000;
+}
+.pson-green input.facb:checked+label:before {  
+    color: #008b5d;
+}
 .pson-green label.checked:before {  
     color: #008b5d;
-}*/
+}
 
 .read-more>span {
     display: inline;

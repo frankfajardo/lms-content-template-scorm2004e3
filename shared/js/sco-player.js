@@ -241,6 +241,8 @@ var scoPlayer = scoPlayer || {};
         if (ieVersion === 8) {
             $('body').off('click', 'input.facb+label');
             $('body').on('click', 'input.facb+label', function () {
+                //redrawPseudos('input.facb+label');
+                $(this).toggleClass('checked');
                 var cb = $(this).prev('input.facb');
                 cb.trigger('click');
             });
@@ -770,7 +772,6 @@ var scoPlayer = scoPlayer || {};
             var pageContainer = $(containerSelector);
             if (pageContainer.length === 0) return;
             pageContainer.html(pageContent).addClass('page-loaded').hide();
-            pageContainer.find('input.facb+label').prepend('<i class="fa fa-check"></i>');
         });
     }
 
