@@ -1189,7 +1189,7 @@ var scoPlayer = scoPlayer || {};
             if ($('.quiz-content[data-qstarted="false"]').length === 0) {
                 SB.setValue('cmi.exit', 'normal');
                 scoSuspend= false;
-                SB.setValue('cmi.complete_status', 'completed');
+                SB.setValue('cmi.completion_status', 'completed');
             }
         }        
     }

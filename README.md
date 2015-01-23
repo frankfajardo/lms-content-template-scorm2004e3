@@ -60,6 +60,12 @@ This template comes with a player for your SCO. The player expects the content p
     * launch/sco-content.json - this is your content page listing
 
 
+  * Files you should **exclude from an LMS deployment**:
+ 
+    * shared/js/SCOBot/Local_API_1484_11.js
+    * shared/js/SCOBot/Local_API_1484_11.min.js
+
+
   * Files you can **exclude from your SCORM package to reduce size**:
  
     * templates - you can remove the whole folder
@@ -68,7 +74,6 @@ This template comes with a player for your SCO. The player expects the content p
     * shared/js/sco-player.js - the player uses the minified version. 
     * shared/js/SCOBot/SCORM_API.js - the player uses the minified version.
     * shared/js/SCOBot/SCOBot.js - the player uses the minified version.
-    * shared/js/SCOBot/Local_API_1484_11.js - the player uses the minified version.
     * .git folder (or similar), if you are using GIT for source version management. You can manually delete this from your SCORM ZIP package.
 
 
