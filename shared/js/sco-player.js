@@ -1312,6 +1312,8 @@ var scoPlayer = scoPlayer || {};
                     qchc += ' ' + chc;
                 }
             });
+            var qdesc = qtext + qchc;
+            var qdesclen = qdesc.length > 255 ? 255 : qdesc.length;
             var qwght = 1/totalQuestions;
 
             SB.setInteraction({
@@ -1327,7 +1329,7 @@ var scoPlayer = scoPlayer || {};
                 learner_response: [usresp],          // {String} user response, represented as 'A', 'B', 'C', etc. 
                 result: result,                      // {String} correct or incorrect
                 latency: endTime,
-                description: qtext + qchc            // {String} question text, includes choices
+                description: qdesc.substr(0, qdesclen),  // {String} question text, includes choices
             });
 
         }
