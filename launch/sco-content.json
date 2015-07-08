@@ -1,5 +1,5 @@
 {
-    "heading": "Pearson Australia Policies: Health, Safety and Environment",
+    "heading": "Acme Health, Safety and Environment",
     "pages":
     [
         {
@@ -7,52 +7,12 @@
             "location" : "../content/welcome.html"
         },
         {
-            "title"    : "Our Commitment",
-            "location" : "../content/company-commitment.html"
-        },
-        {
             "title"    : "Your Responsibility",
             "location" : "../content/your-responsibility.html"
         },
         {
-            "title"    : "Incident Reporting",
-            "location" : "../content/incident-reporting.html"
-        },
-        {
-            "title"    : "Consultative Arrangements",
-            "location" : "../content/consultative-arrangements.html"
-        },
-        {
-            "title"    : "Looking After Yourself",
-            "location" : "../content/looking-after-yourself.html"
-        },
-        {
-            "title"    : "Anti-Bullying",
-            "location" : "../content/anti-bullying.html"
-        },
-        {
-            "title"    : "Manual Handling",
-            "location" : "../content/manual-handling.html"
-        },
-        {
-            "title"    : "Driver Safety",
-            "location" : "../content/driver-safety.html"
-        },
-        {
             "title"    : "First Aiders",
             "location" : "../content/first-aiders.html"
-        },
-        {
-            "title"    : "Wardens",
-            "location" : "../content/wardens.html"
-        },
-        {
-            "title"    : "Emergency Preparedness",
-            "location" : "../content/emergency-preparedness.html"
-        },
-        {
-            "title"    : "Emergency Evacuation",
-            "location" : "../content/emergency-evacuation.html"
         },
         {
             "title"    : "Workplace Hazards and Risks",
@@ -65,26 +25,6 @@
         {
             "title"    : "Risk Control",
             "location" : "../content/risk-control.html"
-        },
-        {
-            "title"    : "Returning to Work",
-            "location" : "../content/returning-to-work.html"
-        },
-        {
-            "title"    : "Workers Compensation",
-            "location" : "../content/workers-compensation.html"
-        },
-        {
-            "title"    : "Environment Commitment",
-            "location" : "../content/environmental-commitment.html"
-        },
-        {
-            "title"    : "Environmental Management",
-            "location" : "../content/environmental-management.html"
-        },
-        {
-            "title"    : "Environmental Procedures",
-            "location" : "../content/environmental-procedures.html"
         },
         {
             "title"    : "Test Your Knowledge",

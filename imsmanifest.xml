@@ -8,14 +8,14 @@
           xmlns:imsss="http://www.imsglobal.org/xsd/imsss" 
           xmlns:adlseq="http://www.adlnet.org/xsd/adlseq_v1p3" 
           xmlns:adlnav="http://www.adlnet.org/xsd/adlnav_v1p3" 
-          identifier="MANIFEST-PAU_HSE" xsi:schemaLocation="http://www.imsglobal.org/xsd/imscp_v1p1 schemas/imscp_v1p1.xsd                               http://ltsc.ieee.org/xsd/LOM            schemas/lom.xsd                               http://www.adlnet.org/xsd/adlcp_v1p3    schemas/adlcp_v1p3.xsd                               http://www.imsglobal.org/xsd/imsss      schemas/imsss_v1p0.xsd                               http://www.adlnet.org/xsd/adlseq_v1p3   schemas/adlseq_v1p3.xsd                               http://www.adlnet.org/xsd/adlnav_v1p3   schemas/adlnav_v1p3.xsd">
+          identifier="MANIFEST-HSE" xsi:schemaLocation="http://www.imsglobal.org/xsd/imscp_v1p1 schemas/imscp_v1p1.xsd                               http://ltsc.ieee.org/xsd/LOM            schemas/lom.xsd                               http://www.adlnet.org/xsd/adlcp_v1p3    schemas/adlcp_v1p3.xsd                               http://www.imsglobal.org/xsd/imsss      schemas/imsss_v1p0.xsd                               http://www.adlnet.org/xsd/adlseq_v1p3   schemas/adlseq_v1p3.xsd                               http://www.adlnet.org/xsd/adlnav_v1p3   schemas/adlnav_v1p3.xsd">
   <metadata>
     <schema>ADL SCORM</schema>
     <schemaversion>2004 3rd Edition</schemaversion>
   </metadata>
-  <organizations default="MainOrganization-PAU_HSE">
-    <organization identifier="MainOrganization-PAU_HSE" structure="hierarchical" adlseq:objectivesGlobalToSystem="false">
-      <title>Pearson Australia Policies:  Health, Safety and Environment</title>
+  <organizations default="MainOrganization-HSE">
+    <organization identifier="MainOrganization-HSE" structure="hierarchical" adlseq:objectivesGlobalToSystem="false">
+      <title>Acme Health, Safety and Environment</title>
       <item identifier="MainItem" identifierref="MainResource" isvisible="true">
         <!-- equates to cmi.completion_threshold -->
         <!-- SCORM 2004 4th Edition -->
@@ -60,45 +60,12 @@
       <file href="shared/css/sco-player.min.css" />
       <file href="shared/css/sco-print.css" />
       <file href="shared/img/alwayslearning-logo-transparent.png" />
-      <file href="shared/img/logo_pearson.jpg" />
-      <file href="shared/img/pearson-logo-print.jpg" />
-      <file href="shared/img/pearson-logo-transparent.png" />
       <file href="shared/js/jquery/jquery-1.11.0.min.js" />
       <file href="shared/js/modernizr/modernizr-2.5.3.min.js" />
       <file href="shared/js/SCOBot/Local_API_1484_11.min.js" />
       <file href="shared/js/SCOBot/SCOBot.min.js" />
       <file href="shared/js/SCOBot/SCORM_API.min.js" />
       <file href="shared/js/sco-player.min.js" />
-      <file href="content/anti-bullying.html" />
-      <file href="content/anti-bullying.jpg" />
-      <file href="content/company-commitment.html" />
-      <file href="content/company-commitment.png" />
-      <file href="content/consultative-arrangements.html" />
-      <file href="content/consultative-arrangements.jpg" />
-      <file href="content/driver-safety.html" />
-      <file href="content/driver-safety.jpg" />
-      <file href="content/emergency-alert.html" />
-      <file href="content/emergency-alert.jpg" />
-      <file href="content/emergency-evacuation.html" />
-      <file href="content/emergency-evacuation.jpg" />
-      <file href="content/emergency-preparedness.html" />
-      <file href="content/emergency-preparedness.jpg" />
-      <file href="content/environmental-commitment.html" />
-      <file href="content/environmental-commitment.jpg" />
-      <file href="content/environmental-management.html" />
-      <file href="content/environmental-management.jpg" />
-      <file href="content/environmental-procedures.html" />
-      <file href="content/environmental-procedures.jpg" />
-      <file href="content/first-aiders.html" />
-      <file href="content/first-aiders.jpg" />
-      <file href="content/incident-reporting.html" />
-      <file href="content/incident-reporting.jpg" />
-      <file href="content/looking-after-yourself.html" />
-      <file href="content/looking-after-yourself.jpg" />
-      <file href="content/manual-handling.html" />
-      <file href="content/manual-handling.jpg" />
-      <file href="content/returning-to-work.html" />
-      <file href="content/returning-to-work.jpg" />
       <file href="content/risk-control.html" />
       <file href="content/risk-management-step1.jpg" />
       <file href="content/risk-management-step2.jpg" />
@@ -108,12 +75,8 @@
       <file href="content/risk-management.html" />
       <file href="content/test-your-knowledge.html" />
       <file href="content/test-your-knowledge.json" />
-      <file href="content/wardens.html" />
-      <file href="content/wardens.jpg" />
       <file href="content/welcome.html" />
       <file href="content/welcome.jpg" />
-      <file href="content/workers-compensation.html" />
-      <file href="content/workers-compensation.jpg" />
       <file href="content/workplace-hazards.html" />
       <file href="content/workplace-hazards.png" />
       <file href="content/your-responsibility.html" />

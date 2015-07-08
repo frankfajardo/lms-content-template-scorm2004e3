@@ -1,7 +1,7 @@
 # SCORM 2004 SCO Template #
 
 
-This is a SCORM 2004 3E package template I used to create learnning contents in Milo relating to Pearson Australia Policies. 
+This is a template I used to create learning contents for an LMS that is compliant with SCORM 2004 3rd Edition.
 
 
 ## Version ##
@@ -97,7 +97,7 @@ This project uses the following open-source resources:
 
 
 
-[Frank Fajardo]:https://neo.pearson.com/people/UFajaFr
+[Frank Fajardo]:https://github.com/frankfajardo
 [FontAwesome]:http://fortawesome.github.io/Font-Awesome/
 [jQuery]:http://jquery.com
 [SCOBot]:https://github.com/cybercussion/SCOBot/wiki/SCORM-SCOBot-Documentation
